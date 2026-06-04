@@ -1,75 +1,75 @@
-gsap.registerPlugin(ScrollTrigger);
 
-var panels = gsap.utils.toArray(".section");
-panels.pop();
 
-panels.forEach((panel, i) => {
-  
-  // Get the element holding the content inside the panel
-  let innerpanel = panel.querySelector(".section-inner");
-  
-  // Get the Height of the content inside the panel
-  let panelHeight = innerpanel.offsetHeight;
-  console.log(panelHeight)
-  
-  // Get the window height
-  let windowHeight = window.innerHeight;
-  
-  let difference = panelHeight - windowHeight;
-  
-  // ratio (between 0 and 1) representing the portion of the overall animation that's for the fake-scrolling. We know that the scale & fade should happen over the course of 1 windowHeight, so we can figure out the ratio based on how far we must fake-scroll
-  let fakeScrollRatio = difference > 0 ? (difference / (difference + windowHeight)) : 0;
-  
-  // if we need to fake scroll (because the panel is taller than the window), add the appropriate amount of margin to the bottom so that the next element comes in at the proper time.
-  if (fakeScrollRatio) {
-    panel.style.marginBottom = panelHeight * fakeScrollRatio + "px";
-  }
-  
-  let tl = gsap.timeline({
-    scrollTrigger:{
-      trigger: panel,
-      start: "bottom bottom",
-      end: () => fakeScrollRatio ? `+=${innerpanel.offsetHeight}` : "bottom top",
-      pinSpacing: false,
-      pin: true,
-      scrub: true
-    }
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+  const question = item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+
+    // CLOSE OTHER FAQ ITEMS
+    faqItems.forEach(faq => {
+      if (faq !== item) {
+        faq.classList.remove("active");
+      }
+    });
+
+    // TOGGLE CURRENT ITEM
+    item.classList.toggle("active");
+
   });
-  
-  // fake scroll. We use 1 because that's what the rest of the timeline consists of (0.9 scale + 0.1 fade)
-  if (fakeScrollRatio) {
-    tl.to(innerpanel, {yPercent:-100, y: window.innerHeight, duration: 1 / (1 - fakeScrollRatio) - 1, ease: "none"});
-  }
-  tl.fromTo(panel, {scale:1, opacity:1}, {scale: 0.7, opacity: 0.5, duration: 0.9})
-    .to(panel, {opacity:0, duration: 0.1});
+
 });
 
-gsap.registerPlugin(SplitText);
 
-console.clear();
+const images = document.querySelectorAll(".showcase-image");
 
-document.fonts.ready.then(() => {
-  gsap.set(".split", { opacity: 1 });
+let currentImage = 0;
 
-  let split;
-  SplitText.create(".split", {
-    type: "words,lines",
-    linesClass: "line",
-    autoSplit: true,
-    mask: "lines",
-    onSplit: (self) => {
-      split = gsap.from(self.lines, {
-        duration: 0.6,
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "expo.out",
-      });
-      return split;
+setInterval(() => {
+
+    images[currentImage].classList.remove("active");
+
+    currentImage++;
+
+    if (currentImage >= images.length) {
+        currentImage = 0;
     }
-  });
 
-  document.querySelector("button").addEventListener("click", (e) => {
-    split.timeScale(0.2).play(0);
-  });
-});
+    images[currentImage].classList.add("active");
+
+}, 4000);
+
+
+const images_services =
+document.querySelectorAll(".showcase-image_service");
+
+const serviceTitle =
+document.getElementById("serviceTitle");
+
+const services = [
+    "Body Work",
+    "Paint Job",
+    "Frame Repair",
+    "Paint Correction"
+];
+
+let current = 0;
+
+setInterval(() => {
+
+    images[current].classList.remove("active");
+
+    current++;
+
+    if (current >= images.length) {
+        current = 0;
+    }
+
+    images[current].classList.add("active");
+
+    serviceTitle.textContent =
+        services[current];
+
+}, 4000);
