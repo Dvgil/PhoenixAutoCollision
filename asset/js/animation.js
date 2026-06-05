@@ -59,17 +59,18 @@ let current = 0;
 
 setInterval(() => {
 
-    images[current].classList.remove("active");
+    images_services[current].classList.remove("active");
 
     current++;
 
-    if (current >= images.length) {
+    if (current >= images_services.length) {
         current = 0;
     }
 
-    images[current].classList.add("active");
+    images_services[current].classList.add("active");
 
     serviceTitle.textContent =
         services[current];
 
 }, 4000);
+
