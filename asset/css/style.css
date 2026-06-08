@@ -6,11 +6,279 @@
 
 body {
     font-family: Arial, sans-serif;
-    color: white;
-    background: #0f0f0f;
+    
 }
  
+/* NAVBAR */
 
+.navbar {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+}
+
+/* LOGO */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: auto;
+
+    /* Adjust these values if needed */
+    height: clamp(55px, 6vw, 90px);
+
+    display: block;
+
+    object-fit: contain;
+}
+
+/* RIGHT SIDE */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* SOCIALS */
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-links a img {
+    width: 22px;
+    height: 22px;
+
+    transition: transform .3s ease;
+}
+
+.social-links a:hover img {
+    transform: translateY(-2px);
+}
+
+/* HERO SECTION */
+.hero-section {
+  min-height: 100vh;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  padding: 120px 20px 40px;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+
+  
+  font-family: "Oleo Script", system-ui;
+  
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: black;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: auto auto 35px;
+  font-family: var(--low);
+  font-weight: 500;
+    font-family: "Neuton", serif; 
+   
+}
+
+/* BUTTON */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  outline: 2px solid rgb(43, 40, 40);
+  color: black;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  text-transform:uppercase ;
+  
+   font-family: "Oleo Script", system-ui;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* INSURANCE SECTION */
+.insurance-section {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.insurance-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaa;
+
+  
+     font-family: "Neuton", serif; 
+font-weight: 700;
+}
+
+/* LOGO CAROUSEL */
+.scrolling-text {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.rail {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  width: max-content;
+  animation: scroll 70s linear infinite;
+}
+
+/* ALL LOGOS SAME SIZE */
+.rail img {
+  width: 140px;
+  height: 70px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.rail img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* SLOW INFINITE SCROLL */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .hero-section {
+    padding-top: 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .rail {
+    gap: 40px;
+    animation-duration: 35s;
+  }
+
+  .rail img {
+    width: 100px;
+    height: 50px;
+  }
+
+  .insurance-title {
+    font-size: 1rem;
+  }
+}
+
+/* BUTTON */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  outline: 2px solid rgb(43, 40, 40);
+  color: rgb(40, 38, 38);
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  text-transform:uppercase ;
+
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* CONTACT BUTTON */
+
+.contact-btn {
+    text-decoration: none;
+
+    padding: 12px 24px;
+
+    border: 2px solid rgb(40, 38, 38);
+
+    color: rgb(40, 38, 38);
+
+    border-radius: 999px;
+
+    transition: .3s ease;
+}
+
+.contact-btn:hover {
+    background: #da4a10;
+    color: rgb(40, 38, 38);
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .logo {
+        height: 70px;
+    }
+
+}
 /* SECTIONS */
 
 .section {
@@ -22,8 +290,8 @@ body {
 
     padding: 80px 20px;
 
-    background-color: #0f0f0f;
-
+    background-color: #f5f5f1;
+/* 
     background-image:
         linear-gradient(
             rgba(255,255,255,0.05) 2px,
@@ -42,7 +310,7 @@ body {
             90deg,
             rgba(255,255,255,0.04) 1px,
             transparent 1px
-        );
+        ); */
 
     background-size:
         100px 100px,
@@ -74,14 +342,15 @@ body {
 
 .section p {
     line-height: 1.8;
-    color: #bdbdbd;
+    color: b;
 }
 
 /* FOOTER */
 
 .footer {
-    background: #ffffff;
-    color: #111;
+    background-color: #d7c47d;
+    border-top: 3px solid rgb(215, 47, 10);
+    color: rgb(40, 38, 38);
     padding: 80px 40px;
 }
 
@@ -99,13 +368,13 @@ body {
 }
 
 .footer-column p {
-    color: #555;
+    color: #666;
     line-height: 1.7;
 }
 
 .footer-column a {
     display: block;
-    color: #111;
+    color: rgb(40, 38, 38);
     text-decoration: none;
     margin-bottom: 12px;
 }
@@ -143,6 +412,7 @@ body {
 
     gap: 40px;
     align-items: center;
+    
 }
 
 .services-column {
@@ -153,7 +423,7 @@ body {
 
 .info-card {
     padding-bottom: 25px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #da4a10;
 }
 
 .info-card h3 {
@@ -204,6 +474,66 @@ body {
     opacity: 1;
 }
 
+
+/* INSURANCE SECTION */
+.insurance-section {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.insurance-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+ 
+  color: rgb(40, 38, 38);
+
+  
+}
+
+/* LOGO CAROUSEL */
+.scrolling-text {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.rail {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  width: max-content;
+  animation: scroll 70s linear infinite;
+}
+
+/* ALL LOGOS SAME SIZE */
+.rail img {
+  width: 140px;
+  height: 70px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.rail img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* SLOW INFINITE SCROLL */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
 @media (max-width: 768px) {
 
     .services-grid {
@@ -236,6 +566,20 @@ body {
         height: 350px;
     }
 
+
+    rail {
+    gap: 40px;
+    animation-duration: 35s;
+  }
+
+  .rail img {
+    width: 100px;
+    height: 50px;
+  }
+
+  .insurance-title {
+    font-size: 1rem;
+  }
 }
 
 /* SHOWCASE WORK */
@@ -265,7 +609,7 @@ body {
 
 .info-card p {
   line-height: 1.6;
-  color: #666;
+  color: rgb(40, 38, 38);
 }
 
 /* SHOWCASE SECTION */
@@ -285,7 +629,7 @@ body {
 
 .showcase-label {
   letter-spacing: 2px;
-  color: white;
+  color: rgb(40, 38, 38);
   font-size: .9rem;
 }
 
@@ -297,7 +641,7 @@ body {
 
 .showcase-content p {
   line-height: 1.8;
-  color: white;
+  color: rgb(40, 38, 38);
   max-width: 550px;
 }
 
@@ -365,14 +709,14 @@ body {
 
   padding: 100px 60px;
  
-  color: white;
+  color: rgb(40, 38, 38);
 }
 
 /* LEFT SIDE */
 .contact-label {
-  color: white;
+  color: rgb(40, 38, 38);
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  margin-bottom: 20px ;
   font-size: 0.9rem;
    
 }
@@ -385,7 +729,7 @@ body {
 }
 
 .contact-description {
-  color: white;
+  color: rgb(40, 38, 38);
   line-height: 1.8;
   margin-bottom: 50px;
   max-width: 500px;
@@ -398,13 +742,13 @@ body {
 
 .contact-item span {
   display: block;
-  color: white;
+  color: rgb(40, 38, 38);
   margin-bottom: 8px;
   font-size: 0.9rem;
 }
 
 .contact-item a {
-  color: white;
+  color: rgb(40, 38, 38);
   text-decoration: none;
   font-size: 1.3rem;
   transition: 0.3s ease;
@@ -423,7 +767,7 @@ body {
 
 /* FAQ ITEM */
 .faq-item {
-  border-bottom: 1px solid rgba(231, 226, 226, 0.856);
+  border-bottom: 2px solid rgba(232, 91, 10, 0.856);
   padding-bottom: 20px;
 }
 
@@ -433,7 +777,7 @@ body {
   background: none;
   border: none;
 
-  color: white;
+  color: rgb(40, 38, 38);
   font-size: 1.1rem;
   font-weight: 600;
 
@@ -451,7 +795,7 @@ body {
 }
 
 .faq-answer p {
-  color: white;
+  color: rgb(40, 38, 38);
   line-height: 1.7;
   padding-bottom: 10px;
 }
