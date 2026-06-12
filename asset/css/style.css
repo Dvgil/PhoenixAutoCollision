@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-body {
+ body {
     font-family: Arial, sans-serif;
-    
-}
+    font-weight: 500;
+} 
  
 /* NAVBAR */
 
@@ -127,7 +127,7 @@ body {
   transition: 0.3s ease;
   text-transform:uppercase ;
   
-   font-family: "Oleo Script", system-ui;
+   font-family: sans-serif;
 }
 
 .hero-btn:hover {
@@ -149,8 +149,8 @@ body {
   color: #aaa;
 
   
-     font-family: "Neuton", serif; 
-font-weight: 700;
+     font-family: sans-serif;
+     font-weight: 900;
 }
 
 /* LOGO CAROUSEL */
@@ -256,6 +256,7 @@ font-weight: 700;
     border-radius: 999px;
 
     transition: .3s ease;
+    
 }
 
 .contact-btn:hover {
@@ -333,16 +334,20 @@ font-weight: 700;
 .hero h1 {
     font-size: clamp(3rem, 8vw, 6rem);
     margin-bottom: 20px;
+    font-family: Arial, sans-serif;
 }
 
 .section h2 {
     font-size: 3rem;
     margin-bottom: 20px;
+    
+     font-family: "Oleo Script", system-ui;
 }
 
 .section p {
     line-height: 1.8;
-    color: b;
+    color: #666;
+    font-family: Arial, sans-serif;
 }
 
 /* FOOTER */
@@ -351,37 +356,159 @@ font-weight: 700;
     background-color: #d7c47d;
     border-top: 3px solid rgb(215, 47, 10);
     color: rgb(40, 38, 38);
-    padding: 80px 40px;
+   padding: 70px 40px 30px;
+    font-family: sans-serif;
 }
 
+/* CONTAINER */
 .footer-container {
-    max-width: 1400px;
-    margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+  max-width: 1400px;
+  margin: auto;
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+  font-weight: 800;
+  
 }
 
+/* COLUMNS */
 .footer-column h3 {
-    margin-bottom: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  
 }
 
-.footer-column p {
-    color: #666;
-    line-height: 1.7;
-}
-
+.footer-column p,
 .footer-column a {
-    display: block;
-    color: rgb(40, 38, 38);
-    text-decoration: none;
-    margin-bottom: 12px;
+  color: #666;
+  line-height: 1.8;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
+/* LINKS */
 .footer-column a:hover {
-    opacity: .7;
+  color: #da4a10;
 }
+
+/* SOCIAL LINKS */
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid white;
+  margin-top: 50px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: black;
+  font-size: 0.9rem;
+}
+
+
+.hours-list {
+  list-style: none;
+  padding: 0;
+  margin-right: 250px;
+  color: #666;
+  
+}
+
+.hours-list li {
+  display: flex;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  
+
+}
+
+.hours-list li span:first-child {
+  width: 85px;
+  font-weight: 600;
+}
+
+/* Base Layout */
+.hours-container {
+  max-width: 100%;
+  padding: 1rem;
+  
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+.hours-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+
+/* Status Badge Styles */
+.status-badge {
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.status-badge.open {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.closed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.checking {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+/* List Formatting */
+.hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hours-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #666;
+}
+
+.hours-item:last-child {
+  border-bottom: none;
+}
+
+/* Dynamic Highlight for Current Day */
+.hours-item.current-day {
+  background-color: #e8f4fd;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.hours-item.closed .time {
+  color: #d9534f;
+}
+
+
+
 
 /* MOBILE */
 
@@ -397,18 +524,78 @@ font-weight: 700;
     }
 
 }
+.rental-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 200px 40px;
 
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+
+  align-items:flex-start;
+} 
+
+
+/* LABEL */
+.rental-label {
+  display: block;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+/* BIG HEADING */
+.rental-left h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0;
+ text-align: left;
+ font-family: "Oleo Script", system-ui;
+}
+
+.rental-left p{
+  line-height: 1.8;
+  color: #666;
+  max-width: 550px;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.rental-right {
+  position: relative;
+  width: 100%;
+  height: 600px;
+
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.rental-right img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+}
 
 /* SHOWCASE SERVICES */
 
-.services-grid {
+.services-rental {
     max-width: 1400px;
     margin: 0 auto;
 
     padding: 100px 40px;
 
     display: grid;
-    grid-template-columns: 1fr 1.4fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     gap: 40px;
     align-items: center;
@@ -422,19 +609,28 @@ font-weight: 700;
 }
 
 .info-card {
-    padding-bottom: 25px;
-    border-bottom: 2px solid #da4a10;
-}
+    display: flex;
+    flex-direction: column;
 
-.info-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    height: 100%;
+
+    padding: 1.5rem;
+
+    border-bottom: 2px solid #d35400;
 }
 
 .info-card p {
+    flex-grow: 1;
     line-height: 1.7;
     color: #666;
 }
+.info-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+     font-family: "Oleo Script", system-ui;
+}
+
+
 
 /* SHOWCASE */
 

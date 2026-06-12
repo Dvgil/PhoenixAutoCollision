@@ -74,3 +74,48 @@ setInterval(() => {
 
 }, 4000);
 
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+function updateLiveStatus() {
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentTimeInMinutes = (currentHour * 60) + currentMinute;
+
+  // Highlight the current day in the list
+  const currentDayRow = document.getElementById(`day-${currentDay}`);
+  if (currentDayRow) {
+    currentDayRow.classList.add('current-day');
+  }
+
+  // Define business schedule rules in minutes from midnight
+  // Mon-Fri: 9:00 AM (540 mins) to 6:00 PM (1080 mins)
+  // Sat: 10:00 AM (600 mins) to 4:00 PM (960 mins)
+  // Sun: Closed
+  let isOpen = false;
+
+  if (currentDay >= 1 && currentDay <= 5) {
+    if (currentTimeInMinutes >= 540 && currentTimeInMinutes < 1080) {
+      isOpen = true;
+    }
+  } else if (currentDay === 6) {
+    if (currentTimeInMinutes >= 600 && currentTimeInMinutes < 960) {
+      isOpen = true;
+    }
+  }
+
+  // Update Status Badge UI
+  const badge = document.getElementById('status-badge');
+  if (isOpen) {
+    badge.textContent = "🟢 Open Now";
+    badge.className = "status-badge open";
+  } else {
+    badge.textContent = "🔴 Closed Right Now";
+    badge.className = "status-badge closed";
+  }
+}
+
+// Run status logic on page load
+document.addEventListener('DOMContentLoaded', updateLiveStatus); 
