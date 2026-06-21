@@ -776,6 +776,51 @@
   .insurance-title {
     font-size: 1rem;
   }
+
+  
+  /* Rental Section */
+  .rental-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+    padding: 150px 20px;
+  }
+
+  .rental-left {
+    text-align: center;
+  }
+
+  .rental-label {
+    text-align: center;
+  }
+
+  .rental-left h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .rental-left p {
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  .rental-right {
+    height: 350px;
+  }
+
+  /* Rental Services Cards */
+  .services-rental {
+    grid-template-columns: 1fr;
+    gap: 25px;
+
+    padding: 60px 20px;
+  }
+
+  .info-card {
+    text-align: center;
+  }
+
 }
 
 /* SHOWCASE WORK */
